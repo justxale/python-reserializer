@@ -2,18 +2,16 @@ import re
 from typing import IO
 
 
+# TODO: Develop new Decode method
 def decode(f: str):
+    file_lines = None
+    buffer = []
+    data = {}
     with open(f, 'r') as f:
-        data = list()
-        group = dict()
-        for key, value in re.findall(r'(.*):\s*([\dE+-.]+)', f.read()):
-            if key in group:
-                data.append(group)
-                group = dict()
-            group[key] = value
-        data.append(group)
-
-    print(data)
+        file_lines = f.readlines()
+    for i in file_lines:
+        buffer.append(i.replace('    ', '').replace('\n', ''))
+    return data
 
 
 class ReserializerDecoder:

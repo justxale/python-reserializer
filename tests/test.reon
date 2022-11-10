@@ -4,4 +4,3 @@ data reon test_data<1.0, Default>:
     str cool_str = 'wow'
     // Reserialized Object Notation
     list<Dynamic> cool_list = ['a', 1, 2.5, ['a', 'f']]
-data

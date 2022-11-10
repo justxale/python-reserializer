@@ -13,6 +13,6 @@ from .exceptions import (
 from .__version__ import __supported_formats__
 from .decoder import ReserializerDecoder, decode
 
-
+# TODO: Remake API
 def load(file_name: str):
     return decode(file_name)
