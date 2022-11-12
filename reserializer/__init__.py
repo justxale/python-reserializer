@@ -7,7 +7,10 @@ from .api import *
 from .exceptions import (
     InvalidFormatError
 )
-from .decoder import decode_jaon
+from .decoder import (
+    decode_jaon
+)
+from .encoder import ReserializerFile
 
 
 def get_version() -> str:

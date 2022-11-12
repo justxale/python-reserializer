@@ -14,6 +14,7 @@ from .decoder import (
     decode_json,
     decode_xml
 )
+from .encoder import ReserializerFile
 
 
 def load(file_name: str):
@@ -30,3 +31,7 @@ def load(file_name: str):
             return decode_json(file_name)
         case 'xml':
             return decode_xml(file_name)
+
+
+def create(file_name: str, file_format: str):
+    return ReserializerFile(file_name, file_format)

@@ -1,7 +1,5 @@
 from .just_helper import check_validity, try_converting_to_list, get_var_type
 from .exceptions import InvalidStructureError
-import xml
-import json
 
 
 # TODO: Optimise this stuff
@@ -24,7 +22,7 @@ def decode_jaon(f: str):
                     namespaces = buffer[1].split(', ')
 
                 elif line.startswith('//'):
-                    pass
+                    pass  # hm, what should i do with this...
 
                 else:
                     if line.startswith('list') or line.startswith('str'):
@@ -48,6 +46,7 @@ def decode_jaon(f: str):
             else:
                 raise InvalidStructureError(f'Invalid structure at line {line_number}')
 
+        print('Decoding complete with namespaces:', namespaces)
         return return_dict
 
 

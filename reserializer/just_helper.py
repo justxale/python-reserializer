@@ -25,17 +25,17 @@ def get_var_type(var: str, value: str):
             try:
                 return literal_eval(value)
             except ValueError:
-                print('Cannot be processed. Passing...')
+                print(value, 'cannot be processed. Passing...')
         case 'int':
             try:
                 return int(value)
             except ValueError:
-                print('Cannot be processed. Passing...')
+                print(value, 'cannot be processed. Passing...')
         case 'float':
             try:
                 return float(value)
             except ValueError:
-                print('Cannot be processed. Passing...')
+                print(value, 'cannot be processed. Passing...')
         case _:
             print('Unrecognised var type')
 
