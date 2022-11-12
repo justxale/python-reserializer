@@ -19,23 +19,6 @@ def check_validity(line: str) -> bool:
         return False
 
 
-def check_var_validity(line: str) -> bool:
-    if not line.startswith('    ') and (
-            line.startswith('int') or
-            line.startswith('data') or
-            line.startswith('float') or
-            line.startswith('str') or
-            line.startswith('bool') or
-            line.startswith('list') or
-            line.startswith('//') or
-            line.startswith('/*') or
-            line.startswith('*/')
-    ):
-        return True
-    else:
-        return False
-
-
 def get_var_type(var: str, value: str):
     match var:
         case 'str':
