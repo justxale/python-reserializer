@@ -7,7 +7,7 @@ from .api import *
 from .exceptions import (
     InvalidFormatError
 )
-from .decoder import *
+from .decoder import decode_jaon
 
 
 def get_version() -> str:

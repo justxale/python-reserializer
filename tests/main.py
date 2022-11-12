@@ -1,3 +1,3 @@
 import reserializer
 
-print(reserializer.load('test.reon'))
+print(reserializer.load('test.jaon'))
