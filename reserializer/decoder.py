@@ -3,18 +3,20 @@ from .exceptions import InvalidStructureError
 import xml
 import json
 
+
 # TODO: Optimise this stuff
 
 
 def decode_jaon(f: str):
     line_number = 0
-    namespaces = []
+    namespaces = []  # TODO: Realise this thing
     return_dict = dict()
+    first_line_passed = False
 
     with open(f) as f:
         while line := f.readline().rstrip().removeprefix('    '):
             line_number += 1
-            if check_validity(line):
+            if check_validity(line):  # TODO: Remake line validation with match()
                 if line.startswith('data'):
                     buffer = line.removesuffix('>:').split('<')
                     if len(buffer) < 2:
@@ -23,6 +25,7 @@ def decode_jaon(f: str):
 
                 elif line.startswith('//'):
                     pass
+
                 else:
                     if line.startswith('list') or line.startswith('str'):
                         buffer = line.split(' = ')
@@ -47,10 +50,14 @@ def decode_jaon(f: str):
 
         return return_dict
 
+
 # TODO: make xml decoder
+
 def decode_xml(f: str):
     return None
 
+
 # TODO: make xml decoder
+
 def decode_json(f: str):
     return None
