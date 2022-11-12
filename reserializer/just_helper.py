@@ -10,9 +10,9 @@ def check_validity(line: str) -> bool:
             line.startswith('bool') or
             line.startswith('list') or
             line.startswith('var') or
-            line.startswith('//') or
-            line.startswith('/*') or
-            line.startswith('*/')
+            line.startswith('//')  # or
+            # line.startswith('/*') or
+            # line.startswith('*/') # TODO: Multiline structure???
     ):
         return True
     else:
