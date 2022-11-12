@@ -27,25 +27,21 @@ def get_var_type(var: str, value: str):
                 return str(value)
             except ValueError:
                 print('Cannot be processed. Passing...')
-                pass
         case 'int':
             try:
                 return int(value)
             except ValueError:
                 print('Cannot be processed. Passing...')
-                pass
         case 'float':
             try:
                 return float(value)
             except ValueError:
                 print('Cannot be processed. Passing...')
-                pass
         case 'list':
             try:
                 return value
             except ValueError:
                 print('Cannot be processed. Passing...')
-                pass
 
 
 def try_converting_to_list(value: str):
