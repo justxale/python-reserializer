@@ -6,3 +6,4 @@ data jaon test_data<1.0, Default>:
     list cool_list = ['a', 1, 2.5, ['a', 'f']]
     str cool_str2 = "funkin'"
     bool cool_bool = True
+    bool cool_bool2 = False
