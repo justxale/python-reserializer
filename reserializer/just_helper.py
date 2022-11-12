@@ -21,7 +21,7 @@ def check_validity(line: str) -> bool:
 
 def get_var_type(var: str, value: str):
     match var:
-        case ['str' | 'bool' | 'list']:
+        case 'str' | 'bool' | 'list':
             try:
                 return literal_eval(value)
             except ValueError:
