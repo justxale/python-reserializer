@@ -4,3 +4,5 @@ data jaon test_data<1.0, Default>:
     str cool_str = 'wow'
     // Reserialized Object Notation
     list cool_list = ['a', 1, 2.5, ['a', 'f']]
+    str cool_str2 = "funkin'"
+    bool cool_bool = True

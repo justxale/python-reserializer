@@ -23,8 +23,7 @@ def get_var_type(var: str, value: str):
     match var:
         case 'str':
             try:
-                value = value.removeprefix('"').removeprefix("'").removesuffix('"').removesuffix("'")
-                return str(value)
+                return literal_eval(value)
             except ValueError:
                 print('Cannot be processed. Passing...')
         case 'int':
@@ -39,7 +38,7 @@ def get_var_type(var: str, value: str):
                 print('Cannot be processed. Passing...')
         case 'list':
             try:
-                return value
+                return literal_eval(value)
             except ValueError:
                 print('Cannot be processed. Passing...')
 
