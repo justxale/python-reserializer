@@ -18,6 +18,11 @@ from .encoder import ReserializerFile
 
 
 def load(file_name: str):
+    """
+    Loads file and decodes it
+    :param file_name: path to the file
+    :returns: decoded dictionary with data from file
+    """
     file_format = file_name.split('.')
     file_format = file_format[len(file_format) - 1]
 
@@ -33,5 +38,12 @@ def load(file_name: str):
             return decode_xml(file_name)
 
 
-def create(file_name: str, file_format: str):
+def create(file_name: str):
+    """
+    Creates new file
+    :param file_name: path to output
+    :returns: new ReserializerFile
+    """
+    buffer = file_name.split('.')
+    file_format = buffer[len(buffer) - 1]
     return ReserializerFile(file_name, file_format)
