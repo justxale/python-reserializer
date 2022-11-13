@@ -20,7 +20,6 @@ def check_validity(line: str) -> bool:
 
 
 def get_var_type(var: str, value: str, encoding: bool = False):
-    print('??', value)
     match var:
         case 'bool' | 'list':
             try:

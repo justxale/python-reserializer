@@ -23,9 +23,6 @@ class ReserializerFile:
         """
         buffer = get_var_type(var_type, str(value))
 
-        print(str(value))
-        print('after get_var_type():', buffer)
-
         if "'" in value:
             buffer = ('"' + buffer + '"')
         else:
@@ -33,12 +30,19 @@ class ReserializerFile:
         self.inner_dict[key] = buffer
         self.var_list.append([var_type, key])
 
-    def get_dict(self):
+    def get_values(self):
         """
         Returns a Dictionary
         :return: dict() with stored data
         """
         return self.inner_dict
+
+    def get_value(self, key):
+        try:
+            return self.inner_dict[key]
+        except KeyError:
+            print(f"{key} wasn't found")
+            return None
 
     def export(self):
         """
