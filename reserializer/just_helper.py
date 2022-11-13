@@ -2,7 +2,7 @@ from ast import literal_eval
 
 
 def check_validity(line: str) -> bool:
-    if not line.startswith('    ') and (
+    if not line.startswith('\t') and (
             line.startswith('data') or
             line.startswith('int') or
             line.startswith('float') or
@@ -19,25 +19,42 @@ def check_validity(line: str) -> bool:
         return False
 
 
-def get_var_type(var: str, value: str):
+def get_var_type(var: str, value: str, encoding: bool = False):
+    print('??', value)
     match var:
-        case 'str' | 'bool' | 'list':
+        case 'bool' | 'list':
             try:
                 return literal_eval(value)
             except ValueError:
                 print(value, 'cannot be processed. Passing...')
+                pass
+        case 'str':
+            try:
+                if encoding:
+                    return str(value)
+                else:
+                    return str(value.removeprefix('"').removeprefix("'").removesuffix('"').removesuffix('"'))
+            except ValueError:
+                print(value, 'cannot be processed. Passing...')
+            pass
         case 'int':
             try:
-                return int(value)
+                return int(float(value))
             except ValueError:
+
                 print(value, 'cannot be processed. Passing...')
+                pass
         case 'float':
             try:
+
                 return float(value)
             except ValueError:
+
                 print(value, 'cannot be processed. Passing...')
+                pass
         case _:
             print('Unrecognised var type')
+            pass
 
 
 def try_converting_to_list(value: str):
@@ -45,5 +62,5 @@ def try_converting_to_list(value: str):
         buffer = literal_eval(value)
         return buffer
     else:
-        print('Passing', value)
+        # print('Passing', value)
         return value
